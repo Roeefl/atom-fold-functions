@@ -32,3 +32,13 @@ Autofolding also has the following options:
 2. `autofoldIgnoreGrammars` allows you to specify grammar names for grammars you *do not want to autofold*. This fires after `autofoldGrammars` and does have a default value (see above).
 3. `skipAutofoldWhenNotFirstLine` will stop autofolding if the line cursor is not the first line in the buffer. This will help with searching finding a line and folding it out-of-sight.
 4. `skipAutofoldWhenOnlyOneFunction` will stop autofolding if there is only one top-level function in a file. Handy for JavaScript!
+
+## Keybinding
+
+You can easily add a keyboard shortcut for the toggle option doing this:
+File -> Keymap -> add these lines at the bottom of the file:
+
+(In this example, I'm using alt-t as the keybinding, but you can use anything you like)
+
+'atom-text-editor':
+  'alt-t': 'fold-functions:toggle'
