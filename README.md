@@ -8,7 +8,7 @@ Folds functions within your code. Currently comes with a toggle, fold, and unfol
 
 *Note: this currently folds only those functions it finds at a single indentation (e.g. it will fold the top level functions)*
 
-Heavily inspired/influnced by [Fold Comments](https://atom.io/packages/fold-comments).
+Heavily inspired/influenced by [Fold Comments](https://atom.io/packages/fold-comments). This package uses the "scopes" defined by a language instead of things like ctags.
 
 ## Autofolding
 
@@ -40,5 +40,32 @@ File -> Keymap -> add these lines at the bottom of the file:
 
 (In this example, I'm using alt-t as the keybinding, but you can use anything you like)
 
+```coffescript
 'atom-text-editor':
   'alt-t': 'fold-functions:toggle'
+```
+
+## Configurable Scopes (NEW!)
+
+This module uses level language scopes to define what constitutes a function. Since this varies greatly by language, the package now exposes options for specifying scopes including *by language*!
+
+```coffescript
+"*":
+  "fold-functions":
+    foldScopes: ['meta.function']
+"source.php":
+  "fold-functions":
+    foldScopes: ['meta.something']
+```
+
+By default, this package folds on:
+
+```coffescript
+[
+  'meta.function',
+  'meta.method',
+  'storage.type.arrow',
+  'entity.name.function',
+  'support.function'
+]
+```
